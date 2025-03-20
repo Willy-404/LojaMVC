@@ -5,6 +5,8 @@
 package dal;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,6 +19,12 @@ public class ConecaoBD {
     private static final String PASSWORD = "aluno";
     
     public static Connection conectar(){
+        try {
+            Class.forName(DRIVER_CLASS);
+            return DriverManager.getConnection(URL_MYSQL, USER, PASSWORD);
+        }   catch(ClassNotFoundException | SQLException e){
+            e.getMessage();
+        }
         return null;
     }
     public void desconectar(Connection conexao){
