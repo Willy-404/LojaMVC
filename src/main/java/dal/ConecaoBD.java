@@ -28,7 +28,11 @@ public class ConecaoBD {
         return null;
     }
     public void desconectar(Connection conexao){
-        
+        try{
+        conexao.close();
+    } catch(SQLException e){
+            e.getMessage();
+        }
     }
     
 }
