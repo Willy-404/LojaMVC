@@ -6,6 +6,8 @@ package controller;
 
 import dal.ConexaoBD;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.LoginDAO;
+import model.Usuario;
 
 /**
  *
@@ -22,6 +26,9 @@ public class LoginController {
 
     private Stage stageLogin;
     private Connection conexao;
+    private final LoginDAO dao = new LoginDAO();
+    private ArrayList<String> listaDados;
+    private Usuario user;
 
     @FXML
     private Button btnFechar;
@@ -48,7 +55,7 @@ public class LoginController {
 
     @FXML
     void btnLogarClick(ActionEvent event) {
-
+        processarLogin();
     }
 
     public void setStage(Stage stage) {
@@ -69,4 +76,15 @@ public class LoginController {
         verificarBanco();
     }
 
+    public void processarLogin() {
+        try {
+            if (!dao.bancoOnline()) {
+                System.out.println("Erro na conexao do Banco");
+            } else if (txtUsuario.getText() != null && !txtUsuario.getText().isEmpty() && txtSenha.getText() != null && !txtSenha.getText().isEmpty()) {
+                listaDados = autenticar(txtUsuario.getText(), txtSenha.getText());
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
 }

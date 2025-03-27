@@ -46,6 +46,11 @@ public class LoginDAO extends GenericDAO {
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setPerfil(rs.getString("perfil"));
             }
+            rs.close();
+            stm.close();
+            con.close();
+            return usuario;
+            
         } else {
             return null;
         }
