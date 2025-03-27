@@ -10,8 +10,11 @@ import java.sql.Connection;
 public abstract  class GenericDAO {
     private Connection conexao;
     
-    protected Connection GenericDAO(){
+    protected  GenericDAO(){
         this.conexao = ConexaoBD.conectar();
+    }
+    protected Connection conectarDAO(){
+        this.conexao = ConexaoBD.conectar();    
         return conexao;
-    }    
+    } 
 }

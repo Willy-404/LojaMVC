@@ -1,4 +1,5 @@
-dal\ConecaoBD.class
+dal\ConexaoBD.class
+model\GenericDAO.class
 controller\LoginController.class
+model\Usuario.class
 module-info.class
-principal\App.class
