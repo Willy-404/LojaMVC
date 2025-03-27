@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author Aluno
  */
-public class ConecaoBD {
+public class ConexaoBD {
     private static final String URL_MYSQL = "jdbc:mysql://localhost:3306/lojaBD";
     private static final String DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
     private static final String USER = "root";

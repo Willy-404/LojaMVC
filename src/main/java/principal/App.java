@@ -37,6 +37,7 @@ public class App extends Application {
         
         Scene scene = new Scene(root);
         
+        telaLogin.setTitle("Loja MVC");
         telaLogin.setScene(scene);
         telaLogin.show();
         

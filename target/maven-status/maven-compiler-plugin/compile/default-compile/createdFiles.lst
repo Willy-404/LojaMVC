@@ -1,3 +1,4 @@
+dal\ConecaoBD.class
+controller\LoginController.class
 module-info.class
 principal\App.class
-controller\LoginController.class
